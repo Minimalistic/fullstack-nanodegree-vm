@@ -9,19 +9,19 @@ Base = declarative_base()
 ####### insert at end of file #######
 
 class Restaurant(Base):
-
 	__tablename__ = 'restaurant'
 
+	name = Column(String(250), nullable=False)
 	id = Column(Integer, primary_key=True)
-	name = Column(String(250), nullable=False)
 
-class Employee(Base):
-	__tablename__ = 'employee'
-	name = Column(String(250), nullable=False)
-	id = Column(Integer)
+##commented out for bugtesting
+##class Employee(Base):
+##	__tablename__ = 'employee'
+##
+##	name = Column(String(250), nullable=False)
+##	id = Column(Integer)
 
 class MenuItem(Base):
-
 	__tablename__ = 'menu_item'
 
 	name = Column(String(80), nullable=False)
@@ -32,8 +32,8 @@ class MenuItem(Base):
 	restaurant_id = Column(Integer, ForeignKey('restaurant.id'))
 	restaurant = relationship(Restaurant)
 
+## creates the file
 engine = create_engine(
 'sqlite:///restaurantmenu.db')
 
 Base.metadata.create_all(engine)
-

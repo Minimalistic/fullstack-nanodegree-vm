@@ -29,4 +29,4 @@ for veggieBurger in veggieBurgers:
 	print veggieBurger.restaurant.name
 	print "\n"
 
-UrbanVeggieBurger = session.query(MenuItem).filter_by(id = 43).one()
+UrbanVeggieBurger = session.query(MenuItem).filter_by(id = 10).one()

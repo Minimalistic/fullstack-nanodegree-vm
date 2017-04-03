@@ -11,22 +11,13 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-#Welcome page
 @app.route('/')
-def WelcomePage():
-    output = "<h1>Welcome to the Restaurants Project Main Page</h1>"
-    output += "<a href='/restaurants'>Go to Restaurants List</a>"
-    return output
-
-#Restaurants page - currently lists all menu items rather than what it should.
-@app.route('/restaurants')
-def RestaurantsPage():
-    restaurant = session.query(Restaurant).first()
+@app.route('/restaurants/<int:restaurant_id>/')
+def RestaurantMenu(restaurant_id):
+    restaurant = session.query(Restaurant).filter_by(id =
+        restaurant_id).one()
     items = session.query(MenuItem).filter_by(restaurant_id=restaurant.id)
     output = ''
-
-    output += "<a href = '/restaurants/new' > Make a New Restaurant Here </a></br></br>"
-
     for i in items:
         output += i.name
         output += '</br>'

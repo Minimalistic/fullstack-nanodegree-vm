@@ -1,18 +1,34 @@
 <html>
-    <body>
-        <h1>{{ restaurant.name }}</h1>
-        {% for i in items %}
-        {{i.name}}
-    </br>
 
-        {{i.description}}
-    </br>
-        {{i.price}}
-    </br>
+    <body>
+        <div class="NavBar">
+
+            <a href='/'>
+                <button>
+                    Go Back to Main Page
+                </button>
+            </a>
+
+        </div>
+
+        <h1>{{restaurant.name}}</h1>
+
+        {% for i in items %}
+
+        <div>
+
+            <hr>
+
+            <h3>{{i.name}}</h3>
+
+            <p>{{i.description}}</p>
+
+            <h4>{{i.price}} </h4>
+
+        </div>
 
         {% endfor %}
 
     </body>
 
 </html>
-

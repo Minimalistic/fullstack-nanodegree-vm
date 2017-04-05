@@ -1,5 +1,5 @@
 
-from flask import Flask
+from flask import Flask, render_template
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from database_setup import Base, Restaurant, MenuItem
@@ -43,25 +43,27 @@ def MainPage():
 def restaurantMenu(restaurant_id):
     restaurant = session.query(Restaurant).filter_by(id=restaurant_id).one()
     items = session.query(MenuItem).filter_by(restaurant_id=restaurant.id)
-    output = ''
-    output += "<h3>"
-    output += "<a href='/'>Go Back to Main Page</a>"
-    output += "</h3>"
-    for i in items:
-        output += i.name
-        output += '</br>'
-        output += i.price
-        output += '</br>'
-        output += i.description
-        output += '</br>'
-        output += "<a href ='/restaurant/<restaurant_id>/menu/<menu_id>/edit/'>Edit</a>"
-        output += " / "
-        output += "<a href ='/restaurant/<restaurant_id>/menu/<menu_id>/delete/'>Delete</a>"
-        output += '</br>'
-        output += '</br>'
-    output += "To add a new item to this menu, "
-    output += "<a href='#''>click here.</a>"
-    return output
+    return render_template('menu.html', restaurant=restaurant, items=items)
+    # Old method without templating below:
+    # output = ''
+    # output += "<h3>"
+    # output += "<a href='/'>Go Back to Main Page</a>"
+    # output += "</h3>"
+    # for i in items:
+    #     output += i.name
+    #     output += '</br>'
+    #     output += i.price
+    #     output += '</br>'
+    #     output += i.description
+    #     output += '</br>'
+    #     output += "<a href ='/restaurant/<restaurant_id>/menu/<menu_id>/edit/'>Edit</a>"
+    #     output += " / "
+    #     output += "<a href ='/restaurant/<restaurant_id>/menu/<menu_id>/delete/'>Delete</a>"
+    #     output += '</br>'
+    #     output += '</br>'
+    # output += "To add a new item to this menu, "
+    # output += "<a href='#''>click here.</a>"
+    # return output
 
 # Task 1: Create route for newMenuItem function here
 @app.route('/restaurant/<int:restaurant_id>/menu/new/')

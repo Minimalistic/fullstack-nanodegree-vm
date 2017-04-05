@@ -17,7 +17,8 @@ session = DBSession()
 def MainPage():
     output = ''
     output += "<h1>Welcome to Restaurants and Menus</h1>"
-    output += "<p>Below you will find the available Restaurants in the database.</p>"
+    output += "<p>Below you will find the available Restaurants \
+                in the database.</p>"
     output += "<a href ='/restaurants/1/menu/'>Restaurant 1</a>"
     output += "<br>"
     output += "<a href ='/restaurant/2/menu/'>Restaurant 2</a>"
@@ -53,7 +54,9 @@ def restaurantMenu(restaurant_id):
         output += '</br>'
         output += i.description
         output += '</br>'
-        output += "<a href ='/restaurant/<int:restaurant_id>/<int:menu_id>/edit/'>Edit</a>"
+        output += "<a href ='/restaurant/<restaurant_id>/menu/<menu_id>/edit/'>Edit</a>"
+        output += " / "
+        output += "<a href ='/restaurant/<restaurant_id>/menu/<menu_id>/delete/'>Delete</a>"
         output += '</br>'
         output += '</br>'
     output += "To add a new item to this menu, "
@@ -66,12 +69,12 @@ def newMenuItem(restaurant_id):
     return "page to create a new menu item. Task 1 complete!"
 
 # Task 2: Create route for editMenuItem function here
-@app.route('/restaurant/<int:restaurant_id>/<int:menu_id>/edit/')
+@app.route('/restaurant/<restaurant_id>/menu/<menu_id>/edit/')
 def editMenuItem(restaurant_id, menu_id):
     return "page to edit a menu item. Task 2 complete!"
 
 # Task 3: Create a route for deleteMenuItem function here
-@app.route('/restaurant/<int:restaurant_id>/<int:menu_id>/delete/')
+@app.route('/restaurant/<restaurant_id>/menu/<menu_id>/delete/')
 def deleteMenuItem(restaurant_id, menu_id):
     return "page to delete a menu item. Task 3 complete!"
 

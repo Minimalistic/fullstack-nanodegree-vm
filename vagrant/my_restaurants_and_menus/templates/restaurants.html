@@ -4,14 +4,27 @@
         <h1>
             Welcome to the Restaurants and Menus Website
         </h1>
-        <hr>
-        {% for i in restaurants %}
-        <h3>
-            {{ i.name }}
-        </h3>
-        <p>
-            {{ i.desc }}
-        </p>
+        {% for i in restaurant %}
+ 
+        <div>
+            <hr>
+            <h3>
+                {{i.name}}
+            </h3>
+
+            <p>
+                {{i.description}}
+            </p>
+            <h4>
+                {{i.price}}
+            </h4>
+            <a href ='{{url_for('EditMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>Edit
+            </a>
+            /
+            <a href ='{{url_for('DeleteMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>Delete
+            </a>
+        </div>
+
         {% endfor %}
     </body>
 

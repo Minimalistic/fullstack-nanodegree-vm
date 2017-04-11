@@ -1,0 +1,18 @@
+<html>
+
+    <body>
+        <h1>
+            Welcome to the Restaurants and Menus Website
+        </h1>
+        <hr>
+        {% for i in restaurants %}
+        <h3>
+            {{ i.name }}
+        </h3>
+        <p>
+            {{ i.desc }}
+        </p>
+        {% endfor %}
+    </body>
+
+</html>

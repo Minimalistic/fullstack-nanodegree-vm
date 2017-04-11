@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, request, redirect, \
     url_for, flash, jsonify
 
@@ -34,29 +33,8 @@ def menuItemJSON(restaurant_id, menu_id):
 @app.route('/')
 @app.route('/restaurants')
 def MainPage():
-    output = ''
-    output += "<h1>Welcome to Restaurants and Menus</h1>"
-    output += "<p>Below you will find the available Restaurants \
-                in the database.</p>"
-    output += "<a href ='/restaurants/1/menu/'>Restaurant 1</a>"
-    output += "<br>"
-    output += "<a href ='/restaurants/2/menu/'>Restaurant 2</a>"
-    output += "<br>"
-    output += "<a href ='/restaurants/3/menu/'>Restaurant 3</a>"
-    output += "<br>"
-    output += "<a href ='/restaurants/4/menu/'>Restaurant 4</a>"
-    output += "<br>"
-    output += "<a href ='/restaurants/5/menu/'>Restaurant 5</a>"
-    output += "<br>"
-    output += "<a href ='/restaurants/6/menu/'>Restaurant 6</a>"
-    output += "<br>"
-    output += "<a href ='/restaurants/7/menu/'>Restaurant 7</a>"
-    output += "<br>"
-    output += "<a href ='/restaurants/8/menu/'>Restaurant 8</a>"
-    output += "<br>"
-    output += "<a href ='/restaurants/9/menu/'>Restaurant 9</a>"
-    output += "<p>Currently this list is not generated on the fly.</p>"
-    return output
+    restaurant = session.query(Restaurant).filter_by(id=restaurant_id).all()
+    return render_template('menu.html', restaurant=restaurant)
 
 @app.route('/restaurants/<int:restaurant_id>/menu/')
 def restaurantMenu(restaurant_id):

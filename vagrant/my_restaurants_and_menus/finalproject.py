@@ -35,6 +35,23 @@ def showRestaurant(restaurant_id):
                             restaurant=restaurant,
                             items=items)
 
+## Edits a restaurant
+@app.route('/restaurants/<int:restaurant_id>/menu/edit/', methods=['GET',
+                                                                    'POST'])
+def editRestaurant(restaurant_id):
+    restaurantToEdit = session.query(Restaurant).filter_by(id=restaurant_id).one()
+    if request.method =='POST':
+        if request.form['name']:
+            editedRestaurant.name=request.form['name']
+        session.add(editedRestaurant)
+        session.commit()
+        flash ("Restaurant edit saved successfully!")
+        return redirect(url_for('showRestaurant',
+                                restaurant_id=restaurant_id))
+    else:
+        return render_template('edit_restaurant.html',
+                                restaurant_id=restaurant_id)
+
 @app.route('/restaurants/<int:restaurant_id>/delete/',methods=['GET','POST'])
 def deleteRestaurant(restaurant_id):
     restaurantToDelete = session.query(Restaurant).filter_by(id=restaurant_id).one()

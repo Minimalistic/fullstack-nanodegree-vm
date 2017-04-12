@@ -9,6 +9,11 @@
                     Go Back to Main Page
                 </button>
             </a>
+            <a>
+                <button>
+                    Edit Restaurant
+                </button>
+            </a>
         </div>
 
         <h1>
@@ -30,10 +35,9 @@
         {% endwith %}
 
 
-        <a href ='{{url_for('NewMenuItem',
+        <a href ='{{url_for('newMenuItem',
                             restaurant_id = restaurant.id) }}'>Add New Menu Item
         </a>
-
         {% for i in items %}
  
         <div>
@@ -48,10 +52,10 @@
             <h4>
                 {{i.price}}
             </h4>
-            <a href ='{{url_for('EditMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>Edit
+            <a href ='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>Edit
             </a>
             /
-            <a href ='{{url_for('DeleteMenuItem',
+            <a href ='{{url_for('deleteMenuItem',
                                 restaurant_id = restaurant.id,
                                 menu_id = i.id) }}'>Delete
             </a>

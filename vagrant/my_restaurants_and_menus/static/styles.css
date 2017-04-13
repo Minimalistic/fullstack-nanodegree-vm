@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,400');
+
+/* START Base HTML Styling */
+body {
+    background-color: #e8e3dc;
+    max-width       : 800px;
+    margin          : 0 auto;
+    font-family     : 'Raleway', sans-serif;
+}
+
+a { /* Unified link styling */
+    color          : #1d8773;    
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h4 { /* Snugging up the gap below 'Comments' text */
+    margin-bottom: .1em;
+    color        : grey;
+}
+
+h5 { /* h5 only used to render comment text */
+    font-size  : .9em;
+    margin     : 0;
+    padding-top: 1em;
+}
+
+textarea { /* Ensuring text areas are sufficiently visible/rendered */
+    height: 7em;
+    width : 75%;
+}
+
+button { /* The standard button theme for the app */
+    background           : white;
+    padding              : .7em;
+    margin               : .5em;
+    border-radius        : 10px 10px 10px 10px;
+    -moz-border-radius   : 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border               : 1px solid #1d8773; /* Same border color as 'a' links */
+    -webkit-box-shadow   : 0px 1px 3px -1px rgba(0,0,0,0.73), 0px 4px 10px -1px rgba(0,0,0,0.33);
+    -moz-box-shadow      : 0px 1px 3px -1px rgba(0,0,0,0.73), 0px 4px 10px -1px rgba(0,0,0,0.33);
+    box-shadow           : 0px 1px 3px -1px rgba(0,0,0,0.73), 0px 4px 10px -1px rgba(0,0,0,0.33);
+    font-weight          : bold;
+    font-size            : .75em;
+
+}
+
+button:hover {
+    color     : white;
+    background: #278d91;
+    cursor: pointer;
+}
+
+.disabled button{ /* Styles a div to be disabled if assigned this class */
+    color      : #c1c1c1;
+    cursor     : not-allowed;
+    opacity    : .75;
+    font-weight: normal;
+    border     : 1px #d3d3d3 solid;
+}
+
+.error { /* error class text styling */
+    color: red;
+}
+
+#cancel {
+    color: orange;
+}
+
+#cancel:hover {
+    color:white;
+    background-color: orange;
+}
+#delete { /* Standard delete id for important buttons */
+    color: #ff0000;
+}
+
+#delete:hover {
+    color           : white;
+    background-color: red;
+}
+
+/* END Base HTML Styling */
+
+/* START Project/App Header Bar Styling */
+
+.main-project-bar {
+    display              : flex;
+    padding-top          : 2%;
+    padding-bottom       : 2%;
+    background-color     : white;
+    -webkit-box-shadow   : 0px 1px 3px -1px rgba(0,0,0,0.73), 0px 4px 10px -1px rgba(0,0,0,0.33);
+    -moz-box-shadow      : 0px 1px 3px -1px rgba(0,0,0,0.73), 0px 4px 10px -1px rgba(0,0,0,0.33);
+    box-shadow           : 0px 1px 3px -1px rgba(0,0,0,0.73), 0px 4px 10px -1px rgba(0,0,0,0.33);
+    font-weight          : 100;
+    font-size            : 1.5em;
+}
+
+.project-title {
+    font-size    : 4vw;
+    width        : 70%;
+    align-self   : center;
+    padding-left : .5em;
+    padding-right: .5em;
+}
+
+.login-area {
+    font-size    : .65em;
+    text-align   : right;
+    padding-right: 1em;
+    width        : 50%;
+}
+
+.toolbox { /* A toolbox that contains various buttons such as "Edit Post" etc. */
+    padding   : 0em;
+    display   : flex;
+}
+
+.toolbox a {
+    margin-right    : .25em;
+    background-color: white;
+    padding         : .5em;
+    text-decoration : none;
+    color           : black;
+}
+
+.toolbox a:hover {
+    text-decoration: underline;
+}
+
+/* START General Panel Styling Theme */
+
+.panel-style { /* The standard panel styling that is employed throughout the app and is the wrapper for most of everything thats displayed. */
+    width                : inherit;
+    margin               : .5em;
+    padding              : .5em;
+    background-color     : white;
+    border-radius        : 3px 3px 3px 3px;
+    -moz-border-radius   : 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -webkit-box-shadow   : 0px 1px 3px -1px rgba(0,0,0,0.73), 0px 4px 10px -1px rgba(0,0,0,0.33);
+    -moz-box-shadow      : 0px 1px 3px -1px rgba(0,0,0,0.73), 0px 4px 10px -1px rgba(0,0,0,0.33);
+    box-shadow           : 0px 1px 3px -1px rgba(0,0,0,0.73), 0px 4px 10px -1px rgba(0,0,0,0.33);
+}
+
+.panel-heading {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+}
+
+.panel-title {
+    width         : 70%;
+    display       : flex;
+    text-transform: capitalize; /* Ensuring consistent article title capitilization style */
+}
+
+.panel-title h2 {
+    margin-bottom: 0;
+    margin-top   : 0;
+}
+
+.panel-date {
+    text-align   : right;
+    padding-right: .5em;
+    width        : 30%;
+    font-size    : .75em;
+}
+
+.panel-date h4{
+    margin-bottom: 0;
+}
+
+.panel-content {
+    border       : 2px #b0b6b7;
+    border-style : solid none none none;
+    padding-left : 1em;
+    padding-right: 1em;
+}
+
+.panel-footer {
+    border      : 1px #b0b6b7;
+    border-style: solid none none none;
+    width       : 100%;
+    display     : flex;
+}
+
+/* END General Panel Styling Theme */

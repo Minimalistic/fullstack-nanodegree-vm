@@ -1,21 +1,35 @@
 <html>
-    <body>
+  <body>
+      <form action="{{url_for('editMenuItem', restaurant_id=restaurant_id, menu_id=i.id)}}" method='POST' id="form1">
+          <h1>Edit Menu Form</h1>
+          <p>Input fields cannot be blank.</p>
 
-        <h1>
-            Edit Menu Item
-        </h1>
+          <ul>
 
-        <form action="{{url_for('editMenuItem', restaurant_id=restaurant_id, menu_id=i.id)}}" method='POST' id="form1">
+            <li>
+              <label for="name">
+                <input type='text' name='name' value='{{i.name}}'>
+                Menu Name
+              </label>
+            </li>
 
-            <label for="name">Menu Name</label>
-            <input type='text' name='name' value='{{i.name}}'>
-            <br>
-            <label for="Description">Description</label>
-            <input type='text' size='60' name='description' value='{{i.description}}'>
-            <br>
-            <label for="Price">Price</label>
-            <input type='text' name='price' value='{{i.price}}'>
-        </form>
+            <li>
+              <label for="description">
+                <textarea type='text' name='description' value='{{i.description}}'>{{i.description}}</textarea>
+                Description
+              </label>
+            </li>
+
+            <li>
+              <label for="price">
+                <input type='text' name='price' value='{{i.price}}'>
+                Price
+              </label>
+            </li>
+
+          </ul>
+          
+      </form>
 
         <button type="submit" form="form1" value="Submit">
             Submit
@@ -24,6 +38,5 @@
         <button type="{{url_for('showRestaurant', restaurant_id=i.restaurant_id)}}" form=form1>
             Cancel
         </button>
-
     </body>
 </html>

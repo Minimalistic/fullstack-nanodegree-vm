@@ -2,25 +2,27 @@
     <body>
 
         <h1>
-            EDIT RESTAURANT
+            Edit Page for - {{i.name}}
         </h1>
-        <form action="#" method='POST' id="form1">
-
+        <form action="{{url_for('editRestaurant', restaurant_id=restaurant_id)}}" method='POST' id="form1">
             <label for="name">Restaurant Name:</label>
             <input type='text' name='name' value='{{i.name}}'>
             <br>
-            <label for="name">Description:</label>
-            <input type='text' name='description' value='{{i.description}}'>
+            <button type="submit" form="form1" value="Submit">
+                Submit
+            </button>
+
+            <a href="{{url_for('showRestaurant', restaurant_id=restaurant_id)}}">
+                <button>
+                    Cancel
+                </button>
+            </a>
 
         </form>
-
-        <button type="submit" form="form1" value="Submit">
-            Submit
-        </button>
-
-        <button type="#" form=form1>
-            Cancel
-        </button>
+            <a href="{{ url_for('deleteRestaurant', restaurant_id = restaurant_id)}}" method='post'>
+            <input type='submit', value = 'Delete'>
+            </a>
+        </form>
 
     </body>
 </html>

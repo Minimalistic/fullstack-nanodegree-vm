@@ -91,6 +91,8 @@ def editMenuItem(restaurant_id, menu_id):
     if request.method == 'POST':
         if request.form['name']:
             editedItem.name = request.form['name']
+            editedItem.description = request.form['description']
+            editedItem.price = request.form['price']
         session.add(editedItem)
         session.commit()
         flash ("Edited menu item saved!")
@@ -123,4 +125,3 @@ if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
     app.debug = True
     app.run(host='0.0.0.0', port=5000)
-

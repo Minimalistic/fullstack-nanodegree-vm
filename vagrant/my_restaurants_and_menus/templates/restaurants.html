@@ -1,28 +1,19 @@
-<html>
+{% extends "base.html" %}
 
-    <body>
-        <h1>
-            Welcome to the Restaurants and Menus Website
-        </h1>
-        {% for restaurant in restaurants %}
- 
-        <div>
-            <hr>
-            
-            <h3>
-                <a href ='{{ url_for('showRestaurant', restaurant_id=restaurant.id) }}'>
-                    {{restaurant.name}}
-                </a>
-            </h3>
+{% block content %}
+  {% for restaurant in restaurants %}
+    <div class="panel-style accent">
+      <h3>
+        <a href ='{{ url_for('showRestaurant', restaurant_id=restaurant.id) }}'>
+          {{restaurant.name}}
+        </a>
+      </h3>
+      
+      <p>
+        {{restaurant.description}}
+      </p>
 
+    </div>
+  {% endfor %}
+{% endblock content %}
 
-            <p>
-                {{restaurant.description}}
-            </p>
-
-        </div>
-
-        {% endfor %}
-    </body>
-
-</html>

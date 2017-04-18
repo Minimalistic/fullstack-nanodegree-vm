@@ -1,34 +1,40 @@
-<html>
-  <body>
+{% extends "base.html" %}
+
+  {% block head %}
+    {{ super() }}
+    
+  {% endblock %}
+
+    {% block content %}
       <form action="{{url_for('editMenuItem', restaurant_id=restaurant_id, menu_id=i.id)}}" method='POST' id="form1">
-          <h1>Edit Menu Form</h1>
+          <h2>
+            Edit Menu Item
+          </h2>
+
           <p>Input fields cannot be blank.</p>
 
-          <ul>
+          <label for="name">
+            <h3>
+              Menu Name
+            </h3>
+          </label>
+          <input type='text' name='name' value='{{i.name}}'>
 
-            <li>
-              <label for="name">
-                <input type='text' name='name' value='{{i.name}}'>
-                Menu Name
-              </label>
-            </li>
 
-            <li>
-              <label for="description">
-                <textarea type='text' name='description' value='{{i.description}}'>{{i.description}}</textarea>
-                Description
-              </label>
-            </li>
-
-            <li>
-              <label for="price">
-                <input type='text' name='price' value='{{i.price}}'>
-                Price
-              </label>
-            </li>
-
-          </ul>
+          <label for="description">
+            <h3>
+              Description
+            </h3>
+          </label>
+          <textarea type='text' name='description' value='{{i.description}}'>{{i.description}}</textarea>
           
+          <label for="price">
+            <h3>
+              Price
+            </h3>
+          </label>
+          <input type='text' name='price' value='{{i.price}}'>
+
       </form>
 
         <button type="submit" form="form1" value="Submit">
@@ -38,5 +44,5 @@
         <button type="{{url_for('showRestaurant', restaurant_id=i.restaurant_id)}}" form=form1>
             Cancel
         </button>
-    </body>
-</html>
+      {% endblock %}
+

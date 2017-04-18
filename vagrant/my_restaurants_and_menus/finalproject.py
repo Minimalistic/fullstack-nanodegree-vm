@@ -4,7 +4,7 @@ from flask import   Flask,              \
                     redirect,           \
                     url_for,            \
                     flash,              \
-                    jsonify            
+                    jsonify             
 
 from database_setup import Base, Restaurant, MenuItem
 from sqlalchemy import  create_engine,  \

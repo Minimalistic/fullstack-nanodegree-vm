@@ -1,5 +1,12 @@
-<html>
-    <body>
+{% extends "base.html" %}
+
+  {% block head %}
+    {{ super() }}
+    
+  {% endblock %}
+
+    {% block content %}
+
         <h1>
             New Menu Item
         </h1>
@@ -13,13 +20,13 @@
             <label>
                 Description
             </label>
-            <textarea type='text' col='60' name='description' placeholder="Description of the dish."></textarea>
+            <input type='text' col='60' name='description' placeholder="Description of the dish.">
             <br>
             <label>
                 Price
             </label>
-            <input type='text' size='30' name='price'>            
+            <input type='text' size='30' name='price' value='$'>           
         </form>
         <input type='submit' form="form1" value='Create'>
-    </body>
-</html>
+
+    {% endblock %}

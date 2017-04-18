@@ -1,13 +1,29 @@
-<html>
-    <body>
+{% extends "base.html" %}
 
-        <h1>
-            Edit Page for - {{i.name}}
-        </h1>
+  {% block head %}
+    {{ super() }}
+    
+  {% endblock %}
+
+  {% block content %}
+            <div class="corner">
+                <a href="{{ url_for('deleteRestaurant', restaurant_id = restaurant_id)}}" method='post' type='submit' value='Delete'>
+                    <button>
+                        Delete This Restaurant
+                    </button>
+                </a>
+            </div>
+
         <form action="{{url_for('editRestaurant', restaurant_id=restaurant_id)}}" method='POST' id="form1">
-            <label for="name">Restaurant Name:</label>
+            <h2>
+                Restaurant Name
+            </h2>
+
+            <p>Input fields cannot be blank.</p>
+
             <input type='text' name='name' value='{{i.name}}'>
             <br>
+
             <button type="submit" form="form1" value="Submit">
                 Submit
             </button>
@@ -17,12 +33,6 @@
                     Cancel
                 </button>
             </a>
-
-        </form>
-            <a href="{{ url_for('deleteRestaurant', restaurant_id = restaurant_id)}}" method='post'>
-            <input type='submit', value = 'Delete'>
-            </a>
         </form>
 
-    </body>
-</html>
+{% endblock %}

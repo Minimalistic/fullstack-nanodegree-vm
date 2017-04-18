@@ -13,7 +13,7 @@
                 {{restaurant.name}}
             </h2>    
             <a href='{{url_for('editRestaurant', restaurant_id=restaurant.id) }}'>
-                <button>        
+                <button class="edit-button">        
                     Edit This Restaurant
                 </button>
             </a>
@@ -38,7 +38,7 @@
 
     <div class="panel-style">
         <a href ='{{url_for('newMenuItem', restaurant_id = restaurant.id) }}'>
-            <button>
+            <button class="submit-button">
                 Add New Menu Item
             </button>
         </a>
@@ -49,14 +49,14 @@
         <div class="corner">
 
             <a href ='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>
-                <button>
+                <button class="edit-button">
                     Edit
                 </button>
             </a>
             <a href ='{{url_for('deleteMenuItem',
                             restaurant_id = restaurant.id,
                             menu_id = i.id) }}'>
-                <button>
+                <button class="delete-button">
                     Delete
                 </button>
             </a>

@@ -3,7 +3,7 @@
 /* START Base HTML Styling */
 body {
     color: white;
-    background-color: #FDD835;
+    background-color: #B2EBF2;
     max-width       : 800px;
     margin          : 0 auto;
     font-family     : 'Raleway', sans-serif;
@@ -31,16 +31,12 @@ textarea { /* Ensuring text areas are sufficiently visible/rendered */
 button { /* The standard button theme for the app */
     color: white;
     padding              : .75em;
-    background           : rgba(0,0,0, .33);
-    border               : 1px solid rgba(0,0,0,0.2);
-    border-radius        : 10px 10px 10px 10px;
-    -moz-border-radius   : 10px 10px 10px 10px;
-    -webkit-border-radius: 10px 10px 10px 10px;
+    font-weight: bold;
 }
 
 button:hover {
     color     : white;
-    background: rgba(154,55,0, 0.5);
+    background: rgba(0,0,0, 0.5);
     cursor    : pointer;
 }
 
@@ -56,9 +52,6 @@ button:hover {
     color: red;
 }
 
-#cancel {
-    color: orange;
-}
 
 #cancel:hover {
     color:white;
@@ -75,8 +68,9 @@ button:hover {
 
 input, textarea {
     color:white;
-    font-size: 1.5em;
+    font-size: 1.2em;
     padding:1%;
+    background-color:rgba(0, 0, 0, 0.2);
 }
 
 /* END Base HTML Styling */
@@ -87,11 +81,10 @@ input, textarea {
     text-align: center;
 }
 button, .panel-style, input, textarea { /* The standard panel styling that is employed throughout the app and is the wrapper for most of everything thats displayed. */
-    margin               : 1%;
-    background-color     : rgba(250,90, 150, 0.3);
-    border-width         : 2px;
+    margin               : .5%;
+    border-width         : 1px;
     border-style         : solid;
-    border-color         : #FFFFF0;
+    border-color         : rgba(255,255, 255, .85);
     border-radius        : 10px 10px 10px 10px;
     -moz-border-radius   : 10px 10px 10px 10px;
     -webkit-border-radius: 10px 10px 10px 10px;
@@ -99,16 +92,30 @@ button, .panel-style, input, textarea { /* The standard panel styling that is em
 
 .panel-style {
     padding: 1%;
+    background-color:rgba(0,0, 0, 0.2);
+
 }
 
-.accent {
+.submit-button, .edit-button{
+    background-color : rgba(0, 170, 90, .60);
+}
+
+
+
+.cancel-button {
+    background-color: rgba(255, 220, 107, .60);
+}
+
+.delete-button {
+    background-color: rgba(255,51,54, .60);
+
 }
 
 .corner {
     text-align:right;
 }
 
-.center_element {
+.center-element {
     text-align: center;
     margin: 0 auto;
 }

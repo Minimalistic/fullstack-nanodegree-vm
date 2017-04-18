@@ -1,29 +1,32 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="panel-style">
-      <div class="center-element">
-        <a href ='{{url_for('newRestaurant') }}'>
-            <button class="submit-button">
-                Create A New Restaurant
-            </button>
-        </a>
-      </div>
+    <div class="corner">
+      <a href ='{{url_for('newRestaurant') }}'>
+          <button class="submit-button">
+              Create A New Restaurant
+          </button>
+      </a>
     </div>
   {% for restaurant in restaurants %}
 
-    <div class="panel-style">
-      <h3>
-        <a href ='{{ url_for('showRestaurant', restaurant_id=restaurant.id) }}'>
-          {{restaurant.name}}
-        </a>
-      </h3>
-      
-      <p>
-        {{restaurant.description}}
-      </p>
 
+      <div class="panel-style">
+            <div class="corner">
+      <a href ='{{url_for('showRestaurant', restaurant_id=restaurant.id) }}'>
+          <button class="submit-button">
+              Edit
+          </button>
+      </a>
     </div>
+        <h3>
+          <a href ='{{ url_for('showRestaurant', restaurant_id=restaurant.id) }}'>
+            {{restaurant.name}}
+          </a>
+        </h3>
+
+      </div>
   {% endfor %}
+
 {% endblock content %}
 

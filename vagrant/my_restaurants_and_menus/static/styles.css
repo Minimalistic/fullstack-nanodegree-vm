@@ -76,7 +76,6 @@ button, .panel-style, input, textarea { /* The standard panel styling that is em
     padding: 1%;
     background-color:rgba(0,0, 0, 0.2);
 }
-
 .submit-button, .edit-button{
     background-color : rgba(0, 170, 90, .60);
 }

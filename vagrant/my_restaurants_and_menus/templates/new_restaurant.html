@@ -10,16 +10,19 @@
         <h2>
             Create New Restaurant
         </h2>
-        <form action="{{url_for('newRestaurant', restaurant_id=restaurant_id)}}" method='post' id="form1">
+        <form action="#" method='post'>
 
-            <h4>
-                <label>
-                    Name
-                </label>
-            </h4>
-            <input type='text' size='30' name='name'>
+        <h4>
+            <label>
+                Name
+            </label>
+        </h4>
 
+        <input type='text' name='name'>
+            <button class="submit-button"type='submit' type='submit'>
+                Submit
+            </button>
         </form>
-        <input class="submit-button" type='submit' form="form1" value='Create'>
+
         </div>
     {% endblock %}

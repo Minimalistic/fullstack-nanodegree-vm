@@ -10,13 +10,12 @@
 <div class="center-element">
 <h1> Are you sure you want to delete {{restaurant.name}}? </h1>
     <p>Deleting this restaurant will be permanent.</p>
-        <form action="{{ url_for('deleteRestaurant', restaurant_id=restaurant.id) }}" method='post'>
-
-            <a href = "{{ url_for('listRestaurants')}}">
+                <a href = "{{ url_for('listRestaurants')}}">
                 <button class="cancel-button">
                     Cancel
                 </button>
             </a>
+        <form action="{{ url_for('deleteRestaurant', restaurant_id=restaurant.id) }}" method='post'>
 
             <button class="delete-button" type='submit', value='Delete'>
                 Delete This Restaurant

@@ -4,6 +4,7 @@ from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
+from sqlalchemy.orm import backref
 
 Base = declarative_base()
 ####### insert at end of file #######
@@ -30,7 +31,10 @@ class MenuItem(Base):
     price = Column(String(8))
     course = Column(String(250))
     restaurant_id = Column(Integer, ForeignKey('restaurant.id'))
-    restaurant = relationship(Restaurant)
+    restaurant = relationship(
+                            Restaurant,
+                            backref=backref("children",
+                            cascade="all, delete"))
 
     @property
     def serialize(self):

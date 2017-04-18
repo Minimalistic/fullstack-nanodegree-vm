@@ -35,6 +35,18 @@ def showRestaurant(restaurant_id):
                             restaurant=restaurant,
                             items=items)
 
+## Adds a new restarant
+@app.route('/restaurants/new/', methods=['GET','POST'])
+def newRestaurant():
+    if request.method == 'POST':
+        restaurant = Restaurant(name=request.form['name'])
+        session.add(restaurant)
+        session.commit()
+        flash ("The new restaurant has been created!")
+        return redirect(url_for('listRestaurants'))
+    else:
+        return render_template('new_restaurant.html')
+
 ## Edits a restaurant
 @app.route('/restaurants/<int:restaurant_id>/menu/edit/', methods=['GET',
                                                                     'POST'])

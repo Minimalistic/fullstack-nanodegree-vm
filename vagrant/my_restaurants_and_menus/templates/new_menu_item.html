@@ -7,28 +7,32 @@
 
     {% block content %}
         <div class="panel-style">
-        <h1>
+        <h2>
             New Menu Item
-        </h1>
+        </h2>
         <form action="{{url_for('newMenuItem', restaurant_id=restaurant_id)}}" method='post' id="form1">
 
+        <h4>
             <label>
                 Name
             </label>
-            <br>
-            <input type='text' size='30' name='name'>
-            <br>
+        </h4>
+        <input type='text' size='30' name='name'>
+
+        <h4>
             <label>
                 Description
             </label>
-            <br>
-            <input type='text' col='60' name='description' placeholder="Description of the dish.">
-            <br>
+        </h4>
+        <input type='text' col='60' name='description' placeholder="Description of the dish.">
+
+        <h4>
             <label>
                 Price
             </label>
-            <br>
-            <input type='text' size='30' name='price' value='$'>           
+        </h4>
+        <input type='text' size='30' name='price' value='$'>           
+        
         </form>
         <input class="submit-button" type='submit' form="form1" value='Create'>
         </div>

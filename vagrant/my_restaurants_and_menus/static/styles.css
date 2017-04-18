@@ -4,7 +4,7 @@
 body {
     color: white;
     background-color: #B2EBF2;
-    max-width       : 800px;
+    max-width       : 1000px;
     margin          : 0 auto;
     font-family     : 'Raleway', sans-serif;
 }
@@ -48,24 +48,6 @@ button:hover {
     border     : 1px #d3d3d3 solid;
 }
 
-.error { /* error class text styling */
-    color: red;
-}
-
-
-#cancel:hover {
-    color:white;
-    background-color: orange;
-}
-#delete { /* Standard delete id for important buttons */
-    color: #ff0000;
-}
-
-#delete:hover {
-    color           : white;
-    background-color: red;
-}
-
 input, textarea {
     color:white;
     font-size: 1.2em;
@@ -93,14 +75,11 @@ button, .panel-style, input, textarea { /* The standard panel styling that is em
 .panel-style {
     padding: 1%;
     background-color:rgba(0,0, 0, 0.2);
-
 }
 
 .submit-button, .edit-button{
     background-color : rgba(0, 170, 90, .60);
 }
-
-
 
 .cancel-button {
     background-color: rgba(255, 220, 107, .60);
@@ -108,7 +87,6 @@ button, .panel-style, input, textarea { /* The standard panel styling that is em
 
 .delete-button {
     background-color: rgba(255,51,54, .60);
-
 }
 
 .corner {

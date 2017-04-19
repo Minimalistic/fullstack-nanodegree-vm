@@ -19,21 +19,6 @@
             </a>
         </div>    
     </div>
-    
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-
-    <ul>
-        {% for message in messages %}
-        <li> 
-            <strong> 
-                {{message}} 
-            </strong>
-        </li>
-        {% endfor %}
-    </ul>
-        {% endif %}
-    {% endwith %}
 
     <div class="panel-style">
         <a href ='{{url_for('newMenuItem', restaurant_id = restaurant.id) }}'>

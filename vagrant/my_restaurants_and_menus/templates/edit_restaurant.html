@@ -16,23 +16,27 @@
             </div>
 
         <form action="{{url_for('editRestaurant', restaurant_id=restaurant_id)}}" method='POST' id="form1">
-            <h2>
-                Restaurant Name
-            </h2>
 
-            <p>Input fields cannot be blank.</p>
+            <h4>
+                <label>
+                    Restaurant Name
+                </label>
+            </h4>
 
             <input type='text' name='name' value='{{i.name}}'>
-            <br>
 
+            <i>Input fields cannot be blank.</i>
+            <br>
+            
+        </form>
             <button class="submit-button type="submit" form="form1" value="Submit">
                 Submit
             </button>
-        </form>
             <a href="{{url_for('showRestaurant', restaurant_id=restaurant_id)}}">
                 <button class="cancel-button">
                     Cancel
                 </button>
             </a>
+
         </div>
 {% endblock %}

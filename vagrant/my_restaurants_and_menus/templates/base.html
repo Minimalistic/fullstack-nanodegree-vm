@@ -31,6 +31,9 @@
       </h6>
 
         <div class="panel-style">
+        <!-- Inserts a flash message for completed CRUD actions-->
+        {% include "flash_message.html" %}
+
         {% block content %}
         {% endblock content %}
         </div>

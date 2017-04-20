@@ -85,6 +85,6 @@ button, .panel-style, input, textarea { /* The standard panel styling that is em
 }
 
 .flash-message {
-    background-color: rgba(20,100,150, .5);
+    background-color: rgba(48, 214, 255, 1); 
 }
 /* END General Panel Styling Theme */

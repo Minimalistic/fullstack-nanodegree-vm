@@ -10,16 +10,16 @@
     <div class="center-element">
     <h2> Are you sure you want to delete {{restaurant.name}}? </h2>
         <p>Deleting this restaurant will be permanent.</p>
-            <a href = "{{ url_for('listRestaurants')}}">
-                Cancel
-            </a>
         <form action="{{ url_for('deleteRestaurant', restaurant_id=restaurant.id) }}" method='post'>
 
             <button class="delete-button" type='submit', value='Delete'>
                 Delete This Restaurant
             </button>
-
+            <a href = "{{ url_for('listRestaurants')}}">
+                Cancel
+            </a>
         </form>
+
     </div>
 </div>
 {% endblock %}

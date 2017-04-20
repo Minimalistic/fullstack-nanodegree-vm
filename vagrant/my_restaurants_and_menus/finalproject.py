@@ -47,7 +47,7 @@ def newRestaurant():
             return redirect(url_for('listRestaurants'))
         else:
             flash ("Restaurant name cannot be blank!")
-            return render_template('new_restaurant.html')
+            return render_template('new_restaurant.html' )
     else:
         return render_template('new_restaurant.html')
 
@@ -62,8 +62,13 @@ def editRestaurant(restaurant_id):
             session.add(editedRestaurant)
             session.commit()
             flash ("Restaurant edit saved successfully!")
-        return redirect(url_for('showRestaurant',
+            return redirect(url_for('showRestaurant',
                                 restaurant_id=restaurant_id))
+        else:
+            flash ('Restaurant name cannot be blank!')
+            return render_template('edit_restaurant.html',
+                                   restaurant_id=restaurant_id, 
+                                   i=editedRestaurant)
     else:
         return render_template('edit_restaurant.html',
                                 restaurant_id=restaurant_id,

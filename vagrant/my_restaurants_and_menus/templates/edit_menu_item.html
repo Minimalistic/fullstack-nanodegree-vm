@@ -8,10 +8,11 @@
     {% block content %}
       <div class="panel-style">
         <form action="{{url_for('editMenuItem', restaurant_id=restaurant_id, menu_id=i.id)}}" method='POST' id="form1">
-            <h2>
-              Edit Menu Item
-            </h2>
-
+            <div class="center-element">
+              <h2>
+                Edit Menu Item
+              </h2>
+            </div>
             <p>Input fields cannot be blank.</p>
 
             <label for="name">

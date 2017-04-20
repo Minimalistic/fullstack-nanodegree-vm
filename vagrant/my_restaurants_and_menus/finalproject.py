@@ -13,6 +13,11 @@ from sqlalchemy.orm import sessionmaker
 
 app = Flask(__name__)
 
+# Auth
+from flask import session as login_session
+import  random,
+        string
+
 engine = create_engine('sqlite:///restaurantmenu.db')
 Base.metadata.bind = engine
 

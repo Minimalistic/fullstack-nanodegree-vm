@@ -91,16 +91,20 @@ def deleteRestaurant(restaurant_id):
 @app.route('/restaurants/<int:restaurant_id>/menu/new/', methods=['GET','POST'])
 def newMenuItem(restaurant_id):
     if request.method == 'POST':
-        if form == request.form['form1']:
+        if request.form['name']:
             newItem = MenuItem(name=request.form['name'],
                                description=request.form['description'],
                                price=request.form['price'],
                                restaurant_id = restaurant_id)
             session.add(newItem)
             session.commit()
-        flash ("New menu item created!")
-        return redirect(url_for('showRestaurant',
-                                restaurant_id = restaurant_id))
+            flash ("New menu item created!")
+            return redirect(url_for('showRestaurant',
+                                    restaurant_id = restaurant_id))
+        else:
+            flash ('Menu item cannot be blank!')
+            return render_template('new_menu_item.html',
+                                   restaurant_id = restaurant_id)
     else:
         return render_template('new_menu_item.html',
                                 restaurant_id = restaurant_id)
@@ -115,12 +119,18 @@ def editMenuItem(restaurant_id, menu_id):
             editedItem.name = request.form['name']
             editedItem.description = request.form['description']
             editedItem.price = request.form['price']
-        session.add(editedItem)
-        session.commit()
-        flash ("Edited menu item saved!")
-        return redirect(url_for('showRestaurant',
-                                restaurant_id=restaurant_id))
-    else: 
+            session.add(editedItem)
+            session.commit()
+            flash ("Edited menu item saved!")
+            return redirect(url_for('showRestaurant',
+                                    restaurant_id=restaurant_id))
+        else:
+            flash ('Edited menu item cannot be blank!')
+            return render_template('edit_menu_item.html',
+                                   restaurant_id=restaurant_id,
+                                   menu_id=menu_id,
+                                   i=editedItem)
+    else:
         return render_template('edit_menu_item.html',
                                 restaurant_id=restaurant_id,
                                 menu_id=menu_id,

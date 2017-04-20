@@ -46,7 +46,8 @@ def newRestaurant():
             flash ("The new restaurant has been created!")
             return redirect(url_for('listRestaurants'))
         else:
-            return ERROR_RETURN_FLASK_MESSAGE
+            flash ("Restaurant name cannot be blank!")
+            return render_template('new_restaurant.html')
     else:
         return render_template('new_restaurant.html')
 
@@ -85,12 +86,13 @@ def deleteRestaurant(restaurant_id):
 @app.route('/restaurants/<int:restaurant_id>/menu/new/', methods=['GET','POST'])
 def newMenuItem(restaurant_id):
     if request.method == 'POST':
-        newItem = MenuItem(name=request.form['name'],
-                           description=request.form['description'],
-                           price=request.form['price'],
-                           restaurant_id = restaurant_id)
-        session.add(newItem)
-        session.commit()
+        if form == request.form['form1']:
+            newItem = MenuItem(name=request.form['name'],
+                               description=request.form['description'],
+                               price=request.form['price'],
+                               restaurant_id = restaurant_id)
+            session.add(newItem)
+            session.commit()
         flash ("New menu item created!")
         return redirect(url_for('showRestaurant',
                                 restaurant_id = restaurant_id))

@@ -10,7 +10,7 @@
         <h2>
             Create New Restaurant
         </h2>
-        <form action="#" method='post'>
+        <form action="{{url_for('newRestaurant', restaurant_id=restaurant_id)}}" method='post'>
 
         <h4>
             <label>
@@ -19,10 +19,15 @@
         </h4>
 
         <input type='text' name='name'>
-            <button class="submit-button"type='submit' type='submit'>
+        <br>
+            <button class="submit-button" type='submit'>
                 Submit
             </button>
-        </form>
+            
+            <a href = "{{ url_for('listRestaurants')}}">
+                    Cancel
+            </a>
 
+        </form>
         </div>
     {% endblock %}

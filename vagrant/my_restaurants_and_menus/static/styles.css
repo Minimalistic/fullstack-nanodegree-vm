@@ -3,7 +3,7 @@
 /* START Base HTML Styling */
 body {
     color: white;
-    background-color: #49b28a;
+    background-color: white;
     max-width       : 1000px;
     margin          : 0 auto;
     font-family     : 'Raleway', sans-serif;
@@ -16,11 +16,11 @@ p, h1,h2,h3,h4,h5,h6 {
 
 a { /* Unified link styling */
     color:white;
-    text-decoration: none;
 }
 
 a:hover {
     text-decoration: underline;
+    color: rgba(190,190,190, .7);
 }
 
 textarea { /* Ensuring text areas are sufficiently visible/rendered */
@@ -31,27 +31,16 @@ textarea { /* Ensuring text areas are sufficiently visible/rendered */
 button { /* The standard button theme for the app */
     color: white;
     padding              : .75em;
-    font-weight: bold;
 }
 
 button:hover {
-    color     : white;
     background: rgba(0,0,0, 0.5);
     cursor    : pointer;
-}
-
-.disabled button{ /* Styles a div to be disabled if assigned this class */
-    color      : white;
-    cursor     : not-allowed;
-    opacity    : .75;
-    font-weight: normal;
-    border     : 1px #d3d3d3 solid;
 }
 
 input, textarea {
     color:white;
     font-size: 1.2em;
-    padding:1%;
     background-color:rgba(0, 0, 0, 0.2);
 }
 
@@ -59,20 +48,18 @@ input, textarea {
 
 /* START General Panel Styling Theme */
 
-.site-title {
-    text-align: center;
-}
 button, .panel-style, input, textarea { /* The standard panel styling that is employed throughout the app and is the wrapper for most of everything thats displayed. */
     margin               : .5%;
-    border-width         : 1px;
-    border-style         : solid;
-    border-color         : rgba(255,255, 255, .85);
+    border-color         : rgba(255,255, 255, .55);
     border-radius        : 10px 10px 10px 10px;
     -moz-border-radius   : 10px 10px 10px 10px;
     -webkit-border-radius: 10px 10px 10px 10px;
 }
 
 .panel-style {
+    border-width         : 1px;
+    border-style         : solid;
+    border-color         : rgba(190,190,190, .5);
     padding: 1%;
     background-color:rgba(0,0, 0, 0.2);
 }
@@ -95,5 +82,9 @@ button, .panel-style, input, textarea { /* The standard panel styling that is em
 .center-element {
     text-align: center;
     margin: 0 auto;
+}
+
+.flash-message {
+    background-color: rgba(20,100,150, .5);
 }
 /* END General Panel Styling Theme */

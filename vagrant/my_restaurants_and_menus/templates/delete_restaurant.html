@@ -7,13 +7,11 @@
 
 {% block content %}
 <div class="panel-style">
-<div class="center-element">
-<h1> Are you sure you want to delete {{restaurant.name}}? </h1>
-    <p>Deleting this restaurant will be permanent.</p>
-                <a href = "{{ url_for('listRestaurants')}}">
-                <button class="cancel-button">
-                    Cancel
-                </button>
+    <div class="center-element">
+    <h2> Are you sure you want to delete {{restaurant.name}}? </h2>
+        <p>Deleting this restaurant will be permanent.</p>
+            <a href = "{{ url_for('listRestaurants')}}">
+                Cancel
             </a>
         <form action="{{ url_for('deleteRestaurant', restaurant_id=restaurant.id) }}" method='post'>
 
@@ -22,8 +20,6 @@
             </button>
 
         </form>
-
-
-</div>
+    </div>
 </div>
 {% endblock %}

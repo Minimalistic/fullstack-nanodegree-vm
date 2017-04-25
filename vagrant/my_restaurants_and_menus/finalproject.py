@@ -15,14 +15,20 @@ app = Flask(__name__)
 
 # Auth
 from flask import session as login_session
-import  random,
-        string
+import  random, string
 
 engine = create_engine('sqlite:///restaurantmenu.db')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
+
+@app.route('/login')
+def showLogin():
+    state = ''.join(random.choice(string.ascii_uppercase + string.digits) \
+                    for x in xrange(32))
+    login_session['state'] = state
+    return render_template('login.html')
 
 ## Root of website, displays list of available restaurants.
 @app.route('/')

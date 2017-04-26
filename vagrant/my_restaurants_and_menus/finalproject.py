@@ -161,7 +161,8 @@ def showRestaurant(restaurant_id):
 ## Adds a new restarant
 @app.route('/restaurant/new/', methods=['GET','POST'])
 def newRestaurant():
-
+    if 'username' not in login_session:
+        return redirect('/login')
     if request.method == 'POST':
         if request.form['name']:
             newRestaurant = Restaurant(name=request.form['name'])
@@ -179,6 +180,8 @@ def newRestaurant():
 @app.route('/restaurants/<int:restaurant_id>/menu/edit/', methods=['GET',
                                                                     'POST'])
 def editRestaurant(restaurant_id):
+    if 'username' not in login_session:
+        return redirect('/login')
     editedRestaurant = session.query(Restaurant).filter_by(id=restaurant_id).one()
     if request.method =='POST':
         if request.form['name']:
@@ -200,6 +203,8 @@ def editRestaurant(restaurant_id):
 
 @app.route('/restaurants/<int:restaurant_id>/delete/',methods=['GET','POST'])
 def deleteRestaurant(restaurant_id):
+    if 'username' not in login_session:
+        return redirect('/login')
     restaurantToDelete = session.query(Restaurant).filter_by(id=restaurant_id).one()
     if request.method == 'POST':
         session.delete(restaurantToDelete)
@@ -214,6 +219,8 @@ def deleteRestaurant(restaurant_id):
 ## Task 1: Create route for newMenuItem function here
 @app.route('/restaurants/<int:restaurant_id>/menu/new/', methods=['GET','POST'])
 def newMenuItem(restaurant_id):
+    if 'username' not in login_session:
+        return redirect('/login')
     if request.method == 'POST':
         if request.form['name']:
             newItem = MenuItem(name=request.form['name'],
@@ -237,6 +244,8 @@ def newMenuItem(restaurant_id):
 @app.route('/restaurants/<restaurant_id>/menu/<menu_id>/edit/',methods = ['GET',
                                                                         'POST'])
 def editMenuItem(restaurant_id, menu_id):
+    if 'username' not in login_session:
+        return redirect('/login')
     editedItem = session.query(MenuItem).filter_by(id=menu_id).one()
     if request.method == 'POST':
         if request.form['name']:

@@ -124,7 +124,7 @@ def gdisconnect():
     h = httplib2.Http()
     result = h.request(url, 'GET')[0]
 
-    if result['status'] == '200':
+    if result.status == 200:
         # Reset the user's session.
         del login_session['credentials']
         del login_session['gplus_id']
@@ -161,6 +161,7 @@ def showRestaurant(restaurant_id):
 ## Adds a new restarant
 @app.route('/restaurant/new/', methods=['GET','POST'])
 def newRestaurant():
+
     if request.method == 'POST':
         if request.form['name']:
             newRestaurant = Restaurant(name=request.form['name'])

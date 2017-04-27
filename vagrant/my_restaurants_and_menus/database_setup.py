@@ -1,26 +1,36 @@
-import sys
-
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
-from sqlalchemy.orm import backref
 
 Base = declarative_base()
-####### insert at end of file #######
+
+
+class User(Base):
+    __tablename__ = 'user'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(250), nullable=False)
+    email = Column(String(250), nullable=False)
+    picture = Column(String(250))
+
 
 class Restaurant(Base):
     __tablename__ = 'restaurant'
 
-    name = Column(String(250), nullable=False)
     id = Column(Integer, primary_key=True)
+    name = Column(String(250), nullable=False)
+    user_id = Column(Integer, ForeignKey('user.id'))
+    user = relationship(User)
 
-##commented out for bugtesting
-##class Employee(Base):
-##  __tablename__ = 'employee'
-##
-##  name = Column(String(250), nullable=False)
-##  id = Column(Integer)
+    @property
+    def serialize(self):
+        """Return object data in easily serializeable format"""
+        return {
+            'name': self.name,
+            'id': self.id,
+        }
+
 
 class MenuItem(Base):
     __tablename__ = 'menu_item'
@@ -31,23 +41,23 @@ class MenuItem(Base):
     price = Column(String(8))
     course = Column(String(250))
     restaurant_id = Column(Integer, ForeignKey('restaurant.id'))
-    restaurant = relationship(
-                            Restaurant,
-                            backref=backref("children",
-                            cascade="all, delete"))
+    restaurant = relationship(Restaurant)
+    user_id = Column(Integer, ForeignKey('user.id'))
+    user = relationship(User)
 
     @property
     def serialize(self):
-        #Returns object data in easily serializeable format
+        """Return object data in easily serializeable format"""
         return {
-            'name'        : self.name,
-            'description' : self.description,
-            'id'          : self.id,
-            'price'       : self.price,
-            'course'      : self.course,
+            'name': self.name,
+            'description': self.description,
+            'id': self.id,
+            'price': self.price,
+            'course': self.course,
         }
 
-## creates the file
-engine = create_engine('sqlite:///restaurantmenu.db')
+
+engine = create_engine('sqlite:///restaurantmenuwithusers.db')
+
 
 Base.metadata.create_all(engine)

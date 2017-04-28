@@ -1,17 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,700');
 
 /* START Base HTML Styling */
 body {
-    color: white;
-    background-color: white;
     max-width       : 1000px;
+    color: white;
+    background-color: #78cad3;
     margin          : 0 auto;
     font-family     : 'Raleway', sans-serif;
 }
 
 p, h1,h2,h3,h4,h5,h6 {
     margin: 1.5%;
-
 }
 
 a { /* Unified link styling */
@@ -57,11 +56,13 @@ button, .panel-style, input, textarea { /* The standard panel styling that is em
 }
 
 .panel-style {
+	margin:0 auto;
+    max-width       : 800px;
+	padding:0%;
     border-width         : 1px;
     border-style         : solid;
     border-color         : rgba(190,190,190, .5);
-    padding: 1%;
-    background-color:rgba(0,0, 0, 0.2);
+    background-color:rgba(0,0, 0, 0.25);
 }
 .submit-button, .edit-button{
     background-color : rgba(0, 170, 90, .60);
@@ -83,8 +84,25 @@ button, .panel-style, input, textarea { /* The standard panel styling that is em
     text-align: center;
     margin: 0 auto;
 }
+.flash {
+	width:80%
+}
+.flash ul{
+	text-align:center;
+    background-color: rgba(48, 214, 255, 1);
+    list-style-type: none; 
+}
 
-.flash-message {
-    background-color: rgba(48, 214, 255, 1); 
+.restaurant-header h1 {
+}
+.restaurant-header {
+
+}
+
+.thumbnail {
+}
+.thumbnail img{
+	width:10%;
+
 }
 /* END General Panel Styling Theme */

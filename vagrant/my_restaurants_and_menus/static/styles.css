@@ -99,10 +99,13 @@ button, .panel-style, input, textarea { /* The standard panel styling that is em
 
 }
 
+.material-icons {
+	opacity:.50;
+}
+
 .thumbnail {
 }
 .thumbnail img{
-	width:10%;
-
+	max-width:10%;
 }
 /* END General Panel Styling Theme */

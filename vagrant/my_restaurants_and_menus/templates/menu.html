@@ -35,12 +35,13 @@
 
                 {% if i.course == 'Appetizer' %}
                 <div class="panel-style">
-
-                    <a href ='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>
-                        <button class="edit-button">
-                            Edit
-                        </button>
-                    </a>
+                    <div class="corner">
+                        <a href ='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>
+                            <i class="material-icons">
+                                mode_edit
+                            </i>
+                        </a>
+                    </div>
 
                     <h3>{{i.name}}</h3>
                     <p>{{i.description}}</p>
@@ -58,11 +59,13 @@
                 {% if i.course == 'Entree' %}
                 <div class="panel-style">
 
-                    <a href ='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>
-                        <button class="edit-button">
-                            Edit
-                        </button>
-                    </a>
+                    <div class="corner">
+                        <a href ='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>
+                            <i class="material-icons">
+                                mode_edit
+                            </i>
+                        </a>
+                    </div>
 
                     <h3>{{i.name}}</h3>
                     <p>{{i.description}}</p>
@@ -79,12 +82,14 @@
             {% for i in items %}
                 {% if i.course == 'Dessert' %}
                 <div class="panel-style">
-
-                    <a href ='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>
-                        <button class="edit-button">
-                            Edit
-                        </button>
-                    </a>
+                
+                    <div class="corner">
+                        <a href ='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>
+                            <i class="material-icons">
+                                mode_edit
+                            </i>
+                        </a>
+                    </div>
 
                     <h3>{{i.name}}</h3>
                     <p>{{i.description}}</p>
@@ -100,12 +105,14 @@
                 {% if i.course == 'Beverage' %}
                 <div class="panel-style">
 
-                    <a href ='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>
-                        <button class="edit-button">
-                            Edit
-                        </button>
-                    </a>
-                    
+                    <div class="corner">
+                        <a href ='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>
+                            <i class="material-icons">
+                                mode_edit
+                            </i>
+                        </a>
+                    </div>
+
                     <h3>{{i.name}}</h3>
                     <p>{{i.description}}</p>
                     <p>{{i.price}}</p>

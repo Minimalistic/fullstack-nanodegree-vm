@@ -101,6 +101,7 @@ button, .panel-style, input, textarea { /* The standard panel styling that is em
 
 .material-icons {
 	opacity:.50;
+	margin:1%;
 }
 
 .thumbnail {

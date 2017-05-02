@@ -313,7 +313,7 @@ def editRestaurant(restaurant_id):
         return redirect('/login')
     if editedRestaurant.user_id != login_session['user_id']:
         flash('You cannot edit restaurants that you did not create.')
-        return redirect(url_for('showRestaurants'))
+        return redirect(url_for('showMenu', restaurant_id=restaurant_id))
     if request.method == 'POST':
         if request.form['name']:
             editedRestaurant.name = request.form['name']
@@ -379,7 +379,9 @@ def editMenuItem(restaurant_id, menu_id):
     editedItem = session.query(MenuItem).filter_by(id=menu_id).one()
     restaurant = session.query(Restaurant).filter_by(id=restaurant_id).one()
     if login_session['user_id'] != restaurant.user_id:
-        return "<script>function myFunction() {alert('You are not authorized to edit menu items to this restaurant. Please create your own restaurant in order to edit items.');}</script><body onload='myFunction()''>"
+        flash('You cannot edit menu items that you did not create.')
+        return redirect(url_for('showMenu', restaurant_id=restaurant_id))
+        
     if request.method == 'POST':
         if request.form['name']:
             editedItem.name = request.form['name']

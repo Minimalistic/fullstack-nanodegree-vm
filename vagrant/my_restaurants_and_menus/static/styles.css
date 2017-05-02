@@ -78,6 +78,8 @@ button, .panel-style, input, textarea { /* The standard panel styling that is em
 
 .corner {
     text-align:right;
+    float:right;
+    padding:1%;
 }
 
 .center-element {

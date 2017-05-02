@@ -310,7 +310,9 @@ def editRestaurant(restaurant_id):
     editedRestaurant = session.query(
         Restaurant).filter_by(id=restaurant_id).one()
     if 'username' not in login_session:
-        return redirect('/login')
+        flash('You must be logged in to do that.')
+        return redirect(url_for('showMenu',
+                                 restaurant_id=restaurant_id))
     if editedRestaurant.user_id != login_session['user_id']:
         flash('You cannot edit restaurants that you did not create.')
         return redirect(url_for('showMenu', restaurant_id=restaurant_id))
@@ -353,8 +355,15 @@ def showMenu(restaurant_id):
 @app.route('/restaurant/<int:restaurant_id>/menu/new/', methods=['GET', 'POST'])
 def Item(restaurant_id):
     if 'username' not in login_session:
-        return redirect('/login')
+        flash('You must be logged in to do that.')
+        return redirect(url_for('showMenu',
+                                 restaurant_id=restaurant_id))
     restaurant = session.query(Restaurant).filter_by(id=restaurant_id).one()
+
+    if login_session['user_id'] != restaurant.user_id:
+        flash('You cannot add menu items to restaurants you did not create.')
+        return redirect(url_for('showMenu',
+                                 restaurant_id=restaurant_id))
     if request.method == 'POST':
         newItem = MenuItem(name=request.form['name'],
                            description=request.form['description'],
@@ -375,13 +384,15 @@ def Item(restaurant_id):
 @app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/edit', methods=['GET', 'POST'])
 def editMenuItem(restaurant_id, menu_id):
     if 'username' not in login_session:
-        return redirect('/login')
+        flash('You must be logged in to do that.')
+        return redirect(url_for('showMenu',
+                                 restaurant_id=restaurant_id))
     editedItem = session.query(MenuItem).filter_by(id=menu_id).one()
     restaurant = session.query(Restaurant).filter_by(id=restaurant_id).one()
     if login_session['user_id'] != restaurant.user_id:
         flash('You cannot edit menu items that you did not create.')
         return redirect(url_for('showMenu', restaurant_id=restaurant_id))
-        
+
     if request.method == 'POST':
         if request.form['name']:
             editedItem.name = request.form['name']

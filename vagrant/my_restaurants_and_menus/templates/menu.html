@@ -32,8 +32,16 @@
             <h2>Appetizers</h2>
 
             {% for i in items %}
+
                 {% if i.course == 'Appetizer' %}
                 <div class="panel-style">
+
+                    <a href ='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>
+                        <button class="edit-button">
+                            Edit
+                        </button>
+                    </a>
+
                     <h3>{{i.name}}</h3>
                     <p>{{i.description}}</p>
                     <p>{{i.price}}</p>
@@ -49,6 +57,13 @@
             {% for i in items %}
                 {% if i.course == 'Entree' %}
                 <div class="panel-style">
+
+                    <a href ='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>
+                        <button class="edit-button">
+                            Edit
+                        </button>
+                    </a>
+
                     <h3>{{i.name}}</h3>
                     <p>{{i.description}}</p>
                     <p>{{i.price}}</p>
@@ -64,6 +79,13 @@
             {% for i in items %}
                 {% if i.course == 'Dessert' %}
                 <div class="panel-style">
+
+                    <a href ='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>
+                        <button class="edit-button">
+                            Edit
+                        </button>
+                    </a>
+
                     <h3>{{i.name}}</h3>
                     <p>{{i.description}}</p>
                     <p>{{i.price}}</p>
@@ -77,6 +99,13 @@
             {% for i in items %}
                 {% if i.course == 'Beverage' %}
                 <div class="panel-style">
+
+                    <a href ='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>
+                        <button class="edit-button">
+                            Edit
+                        </button>
+                    </a>
+                    
                     <h3>{{i.name}}</h3>
                     <p>{{i.description}}</p>
                     <p>{{i.price}}</p>

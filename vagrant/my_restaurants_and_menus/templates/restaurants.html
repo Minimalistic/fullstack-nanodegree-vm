@@ -1,7 +1,11 @@
 {% extends "main.html" %}
 {% block content %}
-    
-    <a href='{{url_for('newRestaurant') }}'>
+
+    <h1>
+        All Restaurants
+    </h1>
+
+    <a href='{{url_for('newRestaurant')}}'>
         <button class="submit-button">
             Create a New Restaurant
         </button>
@@ -10,8 +14,10 @@
     {% for restaurant in restaurants %}
     
     <div class="panel-style">
-        <a href = "{{url_for('showMenu', restaurant_id = restaurant.id)}}">
-                        <h3>{{restaurant.name}}</h3>
+        <a href="{{url_for('showMenu', restaurant_id = restaurant.id)}}">
+            <h3>
+                {{restaurant.name}}
+            </h3>
         </a>
     </div>
 

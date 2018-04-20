@@ -1,0 +1,120 @@
+{% extends "main.html" %}
+{% block content %}
+
+        <div class="restaurant-header">
+            <a href='{{url_for('editRestaurant', restaurant_id=restaurant.id) }}'>
+                <h1>
+                    {{ restaurant.name }}
+                        <i class="material-icons corner">
+                            mode_edit
+                        </i>                
+                </h1>
+            </a>
+
+            <div class="thumbnail">
+                <h5>
+                    <img src="{{creator.picture}}">{{ creator.name }}
+                </h5>
+            </div>
+            
+        </div>
+
+            <a href ='{{url_for('Item', restaurant_id = restaurant.id) }}'>
+                <button class="submit-button">
+                    Add New Menu Item
+                </button>
+            </a>
+
+    <div class="panel-style">
+    {% if items !=[] %} 
+
+        <div class="panel-style">
+
+            <h2>Appetizers</h2>
+
+            {% for i in items %}
+
+                {% if i.course == 'Appetizer' %}
+                <div class="panel-style">
+                        <a href ='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>
+                            <i class="material-icons corner">
+                                mode_edit
+                            </i>
+                        </a>
+
+                    <h3>{{i.name}}</h3>
+                    <p>{{i.description}}</p>
+                    <p>{{i.price}}</p>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="panel-style">
+
+            <h2>Entrees</h2>
+
+            {% for i in items %}
+                {% if i.course == 'Entree' %}
+                <div class="panel-style">
+
+                        <a href ='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>
+                            <i class="material-icons corner">
+                                mode_edit
+                            </i>
+                        </a>
+
+                    <h3>{{i.name}}</h3>
+                    <p>{{i.description}}</p>
+                    <p>{{i.price}}</p>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="panel-style">
+
+            <h2>Desserts</h2>
+
+            {% for i in items %}
+                {% if i.course == 'Dessert' %}
+                <div class="panel-style">
+
+                        <a href ='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>
+                            <i class="material-icons corner">
+                                mode_edit
+                            </i>
+                        </a>
+
+                    <h3>{{i.name}}</h3>
+                    <p>{{i.description}}</p>
+                    <p>{{i.price}}</p>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="panel-style">
+            <h2>Beverages</h2>
+            {% for i in items %}
+                {% if i.course == 'Beverage' %}
+                <div class="panel-style">
+
+                        <a href ='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>
+                            <i class="material-icons corner">
+                                mode_edit
+                            </i>
+                        </a>
+
+                    <h3>{{i.name}}</h3>
+                    <p>{{i.description}}</p>
+                    
+                    <p>{{i.price}}</p>
+                </div>
+                {% endif %}
+            {% endfor %}
+
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

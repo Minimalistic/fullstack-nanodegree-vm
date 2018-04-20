@@ -1,0 +1,75 @@
+{% extends "main.html" %}
+{% block content %}
+
+<div class="corner">
+    <a href="{{url_for('deleteMenuItem', restaurant_id = restaurant_id, menu_id=item.id)}}" type='submit' value='Delete'>
+        <button class="delete-button">
+            Delete This Menu Item
+        </button>
+    </a>
+</div>
+
+<h1>
+	Edit Menu Item
+</h1>
+
+<label for="name">
+	<h4>
+		Name:
+	</h4>
+</label>
+
+<input type ="text" maxlength="100" class="text-input" name="name" value="{{item.name }}">
+
+<label for="description">
+	<h4>
+		Description:
+	</h4>
+</label>
+
+<textarea class="text-input" maxlength="250" rows="3" name="description">{{item.description}}</textarea>
+
+<label for="price">
+	<h4>
+		Price:
+	</h4>
+</label>
+
+<input type ="text" maxlength="10" class="text-input" name="price" value="{{item.price}}">
+
+	<div class="radio">
+		<h2>
+			Course
+		</h2>
+		<input type="radio" name="course" id="course1" value="Appetizer" {% if item.course == 'Appetizer'%}checked{%endif%}>Appetizer
+	</div>
+	
+	<div class="radio">
+		<label>
+			<input type="radio" name="course" id="course2" value="Entree" {% if item.course == 'Entree' %}checked{%endif%}>Entree
+		</label>
+	</div>
+	
+	<div class="radio">
+		<label>
+			<input type="radio" name="course" id="course3" value="Dessert" {% if item.course == 'Dessert'%}checked{%endif%}>Dessert
+		</label>
+	</div>
+
+	<div class="radio">
+		<label>
+		    <input type="radio" name="course" id="course4" value="Beverage" {%if item.course =='Beverage'%}checked{%endif%}>Beverage
+		</label>
+	</div>
+	
+<button type="submit" class="submit-button" id="submit" type="submit">
+	Save
+</button>
+
+<a href = '{{url_for('showRestaurants')}}'>
+	<button class="cancel-button">
+		Cancel
+	</button>
+</a>
+
+{% endblock %}

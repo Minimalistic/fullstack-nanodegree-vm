@@ -1,0 +1,70 @@
+{% extends "main.html" %}
+{% block content %}
+
+	<h1>
+		New Menu Item
+	</h1>
+
+
+	<form action="#" method = "post">
+		<label for="name">
+			<h4>
+				Name:
+			</h4>
+		</label>
+		<input class = "text-input" type ="text" maxlength="50" name="name" id="name" placeholder="Name of the course">
+
+		<label for="description">
+			<h4>
+				Description:
+			</h4>
+		</label>
+		<textarea class="text-input" maxlength="250" rows="3" name="description" id="description" placeholder="Description goes here"></textarea>
+
+		<label for="price">
+			<h4>
+				Price:
+			</h4>
+		</label>
+		<input type ="text" class="text-input" maxlength="10" name="price" id="price" placeholder="Price in $">
+
+		<div class="radio">
+		    <input type="radio" name="course" id="appetizer" value="Appetizer">
+		 	<label for="appetizer">
+		 		Appetizer
+		 	</label>
+		</div>
+
+		<div class="radio">
+		    <input type="radio" name="course" id="entree" value="Entree">
+		    <label for="entree">
+			    Entree
+			</label>
+		</div>
+
+		<div class="radio">
+		   	<input type="radio" name="course" id="dessert" value="Dessert">
+		    <label for="dessert">
+		    	Dessert
+		    </label>
+		</div>
+
+		<div class="radio">
+		    <input type="radio" name="course" id="beverage" value="Beverage">
+		    <label for="beverage">
+		    	Beverage
+		    </label>
+		</div>
+
+		<button class="submit-button" type="submit" id="submit" type="submit">
+			Create
+		</button>
+	</form>
+
+		<a href='{{url_for('showRestaurants')}}''>
+			<button class="cancel-button">
+				Cancel
+			</button>
+
+{% endblock %}
+

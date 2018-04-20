@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		{% block head %}
+		    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+			<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+		{% endblock head %}
+	</head>
+
+	{% include "header.html" %}
+
+	<body>
+
+	    <div class="panel-style">
+
+			{% block content %}
+			{% endblock %}
+				
+		<br>
+
+		</div>
+		
+		{% include "footer.html" %}
+
+	</body>
+
+</html>

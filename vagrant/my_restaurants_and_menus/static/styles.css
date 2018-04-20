@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,700');
+
+/* START General HTML Styling */
+
+body {
+    max-width       : 1000px;
+    color           : white;
+    background-color: #78cad3;
+    margin          : 0 auto;
+    font-family     : 'Raleway', sans-serif;
+}
+
+p, h1,h2,h3,h4,h5,h6 {
+    margin: 1.5%;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    text-decoration: underline;
+    color          : rgba(190,190,190, .7);
+}
+
+.radio {
+    margin:1%;
+}
+button {
+    color     : white;
+    padding   : .75em;
+    width     : 150px;
+    margin: 1%;
+}
+
+button:hover {
+    background: rgba(0,0,0, 0.5);
+    cursor    : pointer;
+}
+
+.text-input, textarea {
+    width           : 100%;
+    color           : white;
+    font-size       : 1.2em;
+    background-color: rgba(0, 0, 0, 0.2);
+    box-sizing      : border-box;
+    padding         :1%;
+
+}
+
+/* END General HTML Styling */
+
+/* START Panel and Buttons Styling */
+
+button, .panel-style {
+    border-color         : rgba(255,255, 255, .55);
+    border-radius        : 10px 10px 10px 10px;
+    -moz-border-radius   : 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    
+}
+
+.panel-style {
+    margin          : 0 auto;
+    max-width       : 800px;
+    border-width    : 1px;
+    border-style    : solid;
+    border-color    : rgba(190,190,190, .5);
+    background-color: rgba(0,0, 0, 0.25);
+}
+
+.submit-button, .edit-button{
+    background-color: rgba(0, 170, 90, .60);
+}
+
+.cancel-button {
+    background-color: rgba(255, 220, 107, .60);
+}
+
+.delete-button {
+    background-color: rgba(255,51,54, .60);
+}
+
+/* END General Panel Styling */
+
+/* START Misc Styling */
+
+.corner {
+    text-align: right;
+    float     : right;
+    padding   : 1%;
+    overflow  : hidden;
+}
+
+.center-element {
+    text-align: center;
+    margin    : 0 auto;
+}
+
+.flash {
+	width: 80%
+}
+
+.flash ul{
+    text-align      : center;
+    background-color: rgba(48, 214, 255, 1);
+    list-style-type : none; 
+}
+
+.material-icons {
+    opacity:.50;
+    margin : 1%;
+    width  : 50px;
+}
+
+.thumbnail img{
+    max-width    : 7%;
+    border-style : solid;
+    border-width : 2px;
+    border-radius: 100px;
+    box-shadow   : 0px 5px 10px 0px rgba(0,0,0,0.75);
+}
+
+/* END Misc Styling */

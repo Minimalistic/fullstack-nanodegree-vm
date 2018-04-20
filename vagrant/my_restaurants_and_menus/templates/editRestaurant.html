@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="corner">
+    <a href="{{url_for('deleteRestaurant', restaurant_id = restaurant_id)}}" method='post' type='submit' value='Delete'>
+        <button class="delete-button">
+            Delete This Restaurant
+        </button>
+    </a>
+</div>
+
+<h1>
+	Edit {{restaurant.name}}
+</h1>
+
+
+<form action="{{ url_for('editRestaurant',restaurant_id = restaurant.id)}}" method = "post">
+	<label for="name">Name</label>
+	<input type ="text" class="text-input" name="name" value="{{restaurant.name }}">
+
+	<button type="submit" class="submit-button" id="submit" type="submit">
+		Save Changes
+	</button>
+</form>
+
+<a href = '{{url_for('showRestaurants')}}'>
+	<button class="cancel-button">
+		Cancel
+	</button>
+</a>
+
+{% endblock %}
+

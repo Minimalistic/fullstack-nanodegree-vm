@@ -1,0 +1,42 @@
+<div class="panel-style">
+	<div class="corner">
+		<h5>
+			{% if 'username' not in session %}
+				<a href="{{url_for('showLogin')}}">
+					Click Here to Login
+				</a>
+			{% else %}
+				<a href="{{url_for('disconnect')}}">
+					Logout
+				</a>
+			{% endif %}
+		</h5>
+	</div>
+
+	<a href='/'>
+		<h2>
+			Categoria 
+		</h2>
+	</a>
+
+	<h6>
+		A page filled with categories of things and sub-things.
+	</h6>
+
+</div>
+
+<div class = 'flash panel-style'>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>
+                        {{ message }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</div>
+
+

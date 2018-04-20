@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+{% block content %}
+
+    <h1>
+        All Restaurants
+    </h1>
+
+    <a href='{{url_for('newRestaurant')}}'>
+        <button class="submit-button">
+            Create a New Restaurant
+        </button>
+    </a>
+    
+    {% for restaurant in restaurants %}
+    
+    <div class="panel-style">
+        <a href="{{url_for('showMenu', restaurant_id = restaurant.id)}}">
+            <h3>
+                {{restaurant.name}}
+            </h3>
+        </a>
+    </div>
+
+    {% endfor %}
+{% endblock %}
